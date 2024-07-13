@@ -43,7 +43,7 @@ const Dashboard = () =>{
                 pdfTools.map((e,i)=>{
 
                     return(
-                        <Card key={i} className=" h-[6.5rem] w-[10rem] border  flex flex-col justify-center gap-2 items-center">
+                        <Card key={i} className="h-[6.5rem] w-[10rem] border  flex flex-col justify-center gap-2 items-center">
                             <Typography className="text-xl">{e.icon}</Typography>
                             <Typography>{e.title}</Typography>
                             <Link className="text-2xl" href={e.path}><CiLink /></Link>
