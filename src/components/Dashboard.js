@@ -6,16 +6,18 @@ import { CiLink } from "react-icons/ci";
 import Link from "next/link";
 import Image  from "next/image";
 import file from "../../public/file.png"
-
+import merge from "../../public/pdf.png"
+import compress from "../../public/pdf.png"
+import deletePages from "../../public/Remove.png";
 import { useState } from "react";
 const Dashboard = () =>{
     const route = useRouter()
     const[open,setOpen] = useState(false)
     const convertToPDF=[{id:1,title:"Doc to PDF",icon:<FaFileWord />},{id:2,title:"JPG to PDF",icon:<FaFileImage />},{id:3,icon:<FaFileImage />,title:"PNG to PDF"},{id:4,icon:<FaFileImage />,title:"JPEG to PDF"}]
-    const pdfTools=[{id:1,title:"PDF Merge",icon:<FaFileWord />,path:'/PdfMerge'},{id:2,title:"Compress ",icon:<FaFileImage />,path:"/"},{id:3,icon:<FaFileImage />,title:"Delete  Pages",path:"/RemovePages"},{id:4,icon:<FaFileImage />,title:"Split PDF",path:"/"}]
+    const pdfTools=[{id:1,img:merge,title:"PDF Merge",icon:<FaFileWord />,path:'/PdfMerge'},{id:2,title:"Compress ",img:compress,icon:<FaFileImage />,path:"/compress"},{id:3,icon:<FaFileImage />,title:"Delete  Pages",img:deletePages,path:"/RemovePages"},{id:4,icon:<FaFileImage />,img:merge,title:"Split PDF",path:"/"}]
     return(
         <main
-      className="h-[33rem] w-full border border-green-700  flex flex-row justify-center items-center "
+      className="h-[33rem] w-full  flex flex-row justify-center items-center "
     > <Box className="h-[22rem] w-[28rem]   flex flex-row flex-wrap justify-center items-center gap-8">
                     {
                         convertToPDF.map((e,i)=>{
@@ -50,7 +52,7 @@ const Dashboard = () =>{
                                     <Card className="h-[8rem] w-[9rem] border   flex flex-col justify-center items-center">
                                     <Card className="shadow-2xl rounded-full h-[6rem] w-[6rem] rounded-full shadow-xl bg-blue-300 flex flex-col justify-center items-center border ">
                                             <Button variant="contained" className="border  border-white h-[4rem] shadow-xl  text-sm rounded-full w-[4rem]" >
-                                                <Image src={file} height={50} width={250} alt="Data Process"  />
+                                                <Image src={e.img} height={50} width={250} alt="Data Process"  />
                                             </Button>
                                         </Card>
 
